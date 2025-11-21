@@ -29,7 +29,7 @@ ssh root@[device-ip]
 Add Zerotier to your Device
  - Download Install Script
 ```sh
-curl -LJO https://raw.githubusercontent.com/Jhaiywroumne/BatoZero/main/BatoZero.sh
+curl -LJO https://raw.githubusercontent.com/Dre-OS/BatoZero/main/BatoZero.sh
 ```
  - Grant Run Permission
  ```sh
