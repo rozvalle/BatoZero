@@ -40,7 +40,7 @@ fi
 # Install to root bin directory
 install bin/* /usr/bin
 
-# Add symlinks and set permissions
+# Add "symlinks" and set permissions
 cp ./bin/zerotier-one /usr/bin/zerotier-one
 cp ./bin/zerotier-one /usr/bin/zerotier-cli
 cp ./bin/zerotier-one /usr/bin/zerotier-idtool
@@ -62,5 +62,5 @@ fi
 curl -LJO https://raw.githubusercontent.com/Dre-OS/BatoZero/main/Zerotier
 mv Zerotier /userdata/system/services/
 
-# Enable Zerotier Service in background
-/usr/bin/zerotier-one -d
+# Enable Zerotier Service in background (idk how to run it on startup otherwise)
+# /usr/bin/zerotier-one -d
