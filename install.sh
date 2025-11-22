@@ -15,7 +15,7 @@ echo System Arch: $arch
 if [ "$arch" = "x86_64" ]; then
     echo x86_64 Detected, Downloading
     curl -LJO https://github.com/Dre-OS/BatoZero/releases/download/1.16.0/zerotier-one-x86_64.tar.gz
-    elif [ "$arch" = "arm" ]; then
+elif [ "$arch" = "arm" ]; then
     echo arm Detected, Downloading
     curl -LJO https://github.com/Dre-OS/BatoZero/releases/download/1.16.0/zerotier-one-aarch64.tar.gz
 else
@@ -28,7 +28,7 @@ mkdir -p ./bin
 if [ "$arch" = "x86_64" ]; then
     echo Extracting x86_64 Binaries
     tar --no-same-owner --transform='s|^.*/||' -xzf zerotier-one-x86_64.tar.gz -C ./bin
-    elif [ "$arch" = "arm" ]; then
+elif [ "$arch" = "arm" ]; then
     echo Extracting arm Binaries
     mkdir -p ./bin
     tar --no-same-owner --no-same-permissions --strip-components=1 -xzf zerotier-one-aarch64.tar.gz -C ./bin
@@ -50,7 +50,7 @@ chmod +x /usr/bin/zerotier-one /usr/bin/zerotier-cli /usr/bin/zerotier-idtool
 if [ "$arch" = "x86_64" ]; then
     echo Cleaning up x86_64 installation
     rm zerotier-one-x86_64.tar.gz
-    elif [ "$arch" = "arm" ]; then
+elif [ "$arch" = "arm" ]; then
     echo Cleaning up arm installation
     rm zerotier-one-aarch64.tar.gz
 else

@@ -29,15 +29,15 @@ ssh root@[device-ip]
 Add Zerotier to your Device
  - Download Install Script
 ```sh
-curl -LJO https://raw.githubusercontent.com/Dre-OS/BatoZero/main/BatoZero.sh
+curl -LJO https://raw.githubusercontent.com/Dre-OS/BatoZero/main/install.sh
 ```
  - Grant Run Permission
  ```sh
-chmod u+x BatoZero.sh
+chmod u+x install.sh
 ```
  - Run Install Script
 ```sh
-./BatoZero.sh | tee logs.log
+./install.sh | tee logs.log
 ```
  - Enable Startup Service
      * Open Batocera Menu > System Settings > [Advanced] Services > Enable Zerotier
