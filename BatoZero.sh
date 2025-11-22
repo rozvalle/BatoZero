@@ -24,7 +24,6 @@ else
 fi
 
 # Unpack downloaded archive
-# Unpack downloaded archive
 mkdir -p ./bin
 if [ "$arch" = "x86_64" ]; then
     echo Extracting x86_64 Binaries
@@ -38,15 +37,20 @@ else
     exit 1 # terminate and indicate error
 fi
 
-
 # Install to root bin directory
 install bin/* /usr/bin
 
+# Add symlinks and set permissions
+cp ./bin/zerotier-one /usr/bin/zerotier-one
+cp ./bin/zerotier-one /usr/bin/zerotier-cli
+cp ./bin/zerotier-one /usr/bin/zerotier-idtool
+chmod +x /usr/bin/zerotier-one /usr/bin/zerotier-cli /usr/bin/zerotier-idtool
+
 # Cleanup after installation
-if [ $arch = "x86_64" ]; then
+if [ "$arch" = "x86_64" ]; then
     echo Cleaning up x86_64 installation
     rm zerotier-one-x86_64.tar.gz
-    elif [ $arch = "arm" ]; then
+    elif [ "$arch" = "arm" ]; then
     echo Cleaning up arm installation
     rm zerotier-one-aarch64.tar.gz
 else
@@ -57,6 +61,3 @@ fi
 # Setup Startup File
 curl -LJO https://raw.githubusercontent.com/Dre-OS/BatoZero/main/Zerotier
 mv Zerotier /userdata/system/services/
-
-# Cleanup script
-rm BatoZero.sh
