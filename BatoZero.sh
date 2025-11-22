@@ -5,6 +5,7 @@ arch=""
 case $(uname -m) in
     x86_64) arch="x86_64" ;;
     arm)    arch="arm" ;;
+    aarch64) arch="aarch64" ;;
 esac
 
 #Display Architechture
@@ -12,10 +13,10 @@ echo System Arch: $arch
 
 # Download Zerotier
 if [ $arch = "x86_64" ]; then
- echo x86_64 Detected, Downloading
+ echo "x86_64 Detected, Downloading"
  curl -LJO https://github.com/Dre-OS/BatoZero/releases/download/Latest/zerotier-one-x86_64.tar.gz
-elif [ $arch = "arm" ]; then
- echo arm Detected, Downloading
+elif [[ $arch = "arm" || $arch = "aarch64" ]]; then
+ echo "arm/aarch64 Detected, Downloading"
  curl -LJO https://github.com/Dre-OS/BatoZero/releases/download/Latest/zerotier-one-aarch64.tar.gz
 else
  echo Unsupported system architecture
@@ -27,7 +28,7 @@ mkdir ~/bin
 if [ $arch = "x86_64" ]; then
  echo Extracting x86_64 Binaries
  tar -xzf zerotier-one-x86_64.tar.gz bin/zerotier-one -C ./bin
-elif [ $arch = "arm" ]; then
+elif [[ $arch = "arm" || $arch = "aarch64" ]]; then
  echo Extracting arm Binaries
  tar -xzf zerotier-one-aarch64.tar.gz bin/zerotier-one -C ./bin
 else
@@ -42,7 +43,7 @@ install bin/* /usr/bin
 if [ $arch = "x86_64" ]; then
  echo Cleaning up x86_64 installation
  rm zerotier-one-x86_64.tar.gz
-elif [ $arch = "arm" ]; then
+elif [[ $arch = "arm" || $arch = "aarch64" ]]; then
  echo Cleaning up arm installation
  rm zerotier-one-aarch64.tar.gz
 else
