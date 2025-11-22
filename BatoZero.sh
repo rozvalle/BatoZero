@@ -61,3 +61,6 @@ fi
 # Setup Startup File
 curl -LJO https://raw.githubusercontent.com/Dre-OS/BatoZero/main/Zerotier
 mv Zerotier /userdata/system/services/
+
+# Enable Zerotier Service in background
+/usr/bin/zerotier-one -d
